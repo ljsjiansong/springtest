@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:context="http://www.springframework.org/schema/context"
+
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+       <!--配置对象-->
+       <bean id="book" class="com.ljs.spring.aop.Book"></bean>
+       <bean id="mybook" class="com.ljs.spring.aop.MyBook"></bean>
+       <!--配置aop操作-->
+       <aop:config>
+           <!--配置切入点，expression表达式表示给哪个方法配置，id：给这个切入点起的名字-->
+           <aop:pointcut id="pointcut1" expression="execution(* com.ljs.spring.aop.Book.*(..))"/>
+           <!--配置切面 把增强应用到方法上面-->
+           <aop:aspect ref="mybook">
+               <!--配置增强类型。before表示前置增强,method:增强类里面使用哪个方法作为前置，值为方法名。pointcut-ref:表示把method配置的那个增强应用到那个切点上。
+               比如应用到pointcut1切点上-->
+                <aop:before method="before1" pointcut-ref="pointcut1"/>
+           </aop:aspect>
+       </aop:config>
+       <!--开启aop操作-->
+       <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>
