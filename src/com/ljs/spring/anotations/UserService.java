@@ -1,12 +1,13 @@
 package com.ljs.spring.anotations;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service
 public class UserService {
-    @Autowired
-    // 自动注入，根据类名称找到类对应的对象
+    @Resource(name = "userDaos")
+    // 如果不指定name属性，则正确。如指定的与userDao的@Component(value)值不一致。则报错
     private UserDao userDao;
 
     public void add(){
