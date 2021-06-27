@@ -84,5 +84,13 @@ public class TestIoc {
         com.ljs.spring.anotations.User user = (com.ljs.spring.anotations.User) context.getBean("user");
         user.add();
     }
+
+    // 测试@AutoWired
+    @Test
+    public void testAutowired(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("anotations.xml");
+        com.ljs.spring.anotations.UserService userService = (com.ljs.spring.anotations.UserService) context.getBean("userService");
+        userService.add();
+    }
 }
 
