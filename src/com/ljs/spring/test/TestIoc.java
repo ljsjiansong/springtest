@@ -3,6 +3,7 @@ package com.ljs.spring.test;
 import com.ljs.spring.User;
 import com.ljs.spring.bean.Bean;
 import com.ljs.spring.bean.Bean2;
+import com.ljs.spring.inject.Book;
 import com.ljs.spring.inject.PropertyDemo1;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -43,6 +44,14 @@ public class TestIoc {
         ApplicationContext context = new ClassPathXmlApplicationContext("demo1.xml");
         PropertyDemo1 propertyDemo1 = (PropertyDemo1)context.getBean("demo1");
         propertyDemo1.test1();
+    }
+
+    // 测试set注入属性
+    @Test
+    public void getSet(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("demo2.xml");
+        Book book = (Book)context.getBean("demo2");
+        book.bookdemo();
     }
 }
 
