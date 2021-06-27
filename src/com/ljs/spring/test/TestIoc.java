@@ -14,7 +14,9 @@ public class TestIoc {
         // 1、加载spring配置文件，根据创建对象
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         User user = (User)context.getBean("user");
+        User user2 = (User)context.getBean("user");
         System.out.println(user);
+        System.out.println(user2);
         user.add("name");
     }
     // 测试静态工厂创建实例
