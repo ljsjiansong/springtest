@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       <!--注入复杂类型-->
+       <bean id="person" class="com.ljs.spring.inject.Person2">
+              <!--数组-->
+              <property name="arrs">
+                     <list>
+                            <value>jason</value>
+                            <value>tom</value>
+                            <value>xiaowang</value>
+                     </list>
+              </property>
+              <!--list-->
+              <property name="list">
+                     <list>
+                            <value>allen</value>
+                            <value>zhangsan</value>
+                            <value>lisi</value>
+                     </list>
+              </property>
+              <!--map-->
+              <property name="map">
+                     <map>
+                            <entry key="aa" value="aa"></entry>
+                            <entry key="bb" value="bb"></entry>
+                            <entry key="cc" value="cc"></entry>
+                     </map>
+              </property>
+              <!--properties-->
+              <property name="properties">
+                     <props>
+                            <prop key="driverClass">com.mysql.jdbc.Driver</prop>
+                            <prop key="password">123456</prop>
+                     </props>
+              </property>
+       </bean>
+</beans>

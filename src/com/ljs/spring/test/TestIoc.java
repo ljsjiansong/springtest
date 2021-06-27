@@ -3,10 +3,7 @@ package com.ljs.spring.test;
 import com.ljs.spring.User;
 import com.ljs.spring.bean.Bean;
 import com.ljs.spring.bean.Bean2;
-import com.ljs.spring.inject.Book;
-import com.ljs.spring.inject.Person;
-import com.ljs.spring.inject.PropertyDemo1;
-import com.ljs.spring.inject.UserService;
+import com.ljs.spring.inject.*;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -70,6 +67,14 @@ public class TestIoc {
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext2.xml");
         Person person = (Person) context.getBean("person");
         person.test1();
+    }
+
+    // 测试复杂属性注入
+    @Test
+    public void notSimple(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext3.xml");
+        Person2 person = (Person2) context.getBean("person");
+        person.test();
     }
 }
 
