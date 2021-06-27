@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--使用对象注入属性-->
+    <bean id="userDao" class="com.ljs.spring.inject.UserDao"></bean>
+    <bean id="userService" class="com.ljs.spring.inject.UserService">
+        <!-- 注入Dao对象
+            name属性值，service类里面的属性的名称。
+            不要写value属性，因为是对象。
+            写ref属性。dao配置bean标签当中id值。
+         -->
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+</beans>

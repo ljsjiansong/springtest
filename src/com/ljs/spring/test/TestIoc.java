@@ -5,6 +5,7 @@ import com.ljs.spring.bean.Bean;
 import com.ljs.spring.bean.Bean2;
 import com.ljs.spring.inject.Book;
 import com.ljs.spring.inject.PropertyDemo1;
+import com.ljs.spring.inject.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -52,6 +53,14 @@ public class TestIoc {
         ApplicationContext context = new ClassPathXmlApplicationContext("demo2.xml");
         Book book = (Book)context.getBean("demo2");
         book.bookdemo();
+    }
+
+    // 测试对象注入属性
+    @Test
+    public void getTestObject(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("demo3.xml");
+        UserService userService = (UserService) context.getBean("userService");
+        userService.userServiceTest();
     }
 }
 
