@@ -76,5 +76,13 @@ public class TestIoc {
         Person2 person = (Person2) context.getBean("person");
         person.test();
     }
+
+    // 测试注解
+    @Test
+    public void testAnotation(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("anotations.xml");
+        com.ljs.spring.anotations.User user = (com.ljs.spring.anotations.User) context.getBean("user");
+        user.add();
+    }
 }
 
