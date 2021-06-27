@@ -4,6 +4,7 @@ import com.ljs.spring.User;
 import com.ljs.spring.bean.Bean;
 import com.ljs.spring.bean.Bean2;
 import com.ljs.spring.inject.Book;
+import com.ljs.spring.inject.Person;
 import com.ljs.spring.inject.PropertyDemo1;
 import com.ljs.spring.inject.UserService;
 import org.junit.Test;
@@ -61,6 +62,14 @@ public class TestIoc {
         ApplicationContext context = new ClassPathXmlApplicationContext("demo3.xml");
         UserService userService = (UserService) context.getBean("userService");
         userService.userServiceTest();
+    }
+
+    // 测试p命名空间注入属性
+    @Test
+    public void getP(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext2.xml");
+        Person person = (Person) context.getBean("person");
+        person.test1();
     }
 }
 
