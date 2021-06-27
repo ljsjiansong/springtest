@@ -92,5 +92,13 @@ public class TestIoc {
         com.ljs.spring.anotations.UserService userService = (com.ljs.spring.anotations.UserService) context.getBean("userService");
         userService.add();
     }
+
+    // 测试注解和配置混用
+    @Test
+    public void testAnatationAndXml(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("anotations.xml");
+        com.ljs.spring.anotations.BookService bookService = (com.ljs.spring.anotations.BookService) context.getBean("bookService");
+        bookService.add();
+    }
 }
 
