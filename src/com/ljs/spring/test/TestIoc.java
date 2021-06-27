@@ -1,6 +1,7 @@
 package com.ljs.spring.test;
 
 import com.ljs.spring.User;
+import com.ljs.spring.bean.Bean;
 import com.ljs.spring.bean.Bean2;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -20,6 +21,15 @@ public class TestIoc {
     public void getStaticFactory(){
         ApplicationContext context = new ClassPathXmlApplicationContext("Bean2.xml");
         Bean2 bean = (Bean2)context.getBean("person");
+        System.out.println(bean);
+        bean.add("name");
+    }
+
+    // 测试实例化工厂
+    @Test
+    public void getFactory(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("Bean.xml");
+        Bean bean = (Bean)context.getBean("bean");
         System.out.println(bean);
         bean.add("name");
     }
